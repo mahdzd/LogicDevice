@@ -1,87 +1,88 @@
-# Logic-Controlled Board – Digital Logic Design Project
+# Logic-Controlled Board – Final Project  
+**Course:** COE322 – Logic Design Lab  
+**Institution:** Lebanese American University  
+**Date:** 14/05/2025  
 
-> **Course**: COE211 – Logic Design  
-> **University**: Lebanese American University – Spring 2025  
-> **Team**: Mahdi Zein Al Dine, [Other Team Members]  
-> **Instructor**: Leila Issa
-
----
-
-## 📘 Project Overview
-
-The Logic-Controlled Board is an interactive switching system featuring four toggle switches and four colored LEDs (Red, Green, Blue, Yellow). Each switch dynamically maps to an LED based on the **last switch turned off**, allowing for an illusion of smart behavior.
-
-Special functionality includes:
-- Sequence-dependent LED activation (4 unique sequences)
-- Switch caps that disable functionality when removed
-- A reset timer
-- Optional "practice mode" with a 7-segment display showing the active sequence
-- Lock/unlock mode via startup logic
+## Team Members
+- Mahmoud Al Ashkar — 202302853  
+- Hussein Itani — 202300351  
+- Mahdi Zein Al Dine — 202300041  
 
 ---
 
-## 🔩 Features
+## 📘 Overview
+This project demonstrates a **Logic-Controlled Board** that uses digital logic design, finite state machines (FSM), and memory elements to dynamically control a set of four colored LEDs (red, green, blue, yellow) using four switches.
 
-- ✅ FSM-controlled dynamic switch-LED mapping  
-- ✅ 7-segment display mode (practice/performance toggle)  
-- ✅ Capless switch detection and timer-based disabling  
-- ✅ Sequence memory and reset logic  
-- ✅ Clean circuit design with minimal IC usage  
+The behavior changes based on the last switch turned off, and the mapping between switches and LEDs is retained even when switch caps are physically swapped, creating the illusion of "intelligent" control.
 
 ---
 
-## 🔧 Tools & Components
-
-| Tool/Component     | Description                          |
-|--------------------|--------------------------------------|
-| **Quartus II**     | Digital design and simulation        |
-| **7448 IC**         | BCD to 7-segment decoder (active high) |
-| **555 Timer**      | Clock signal generator               |
-| **Toggle Switches**| 4 physical user inputs               |
-| **LEDs**           | Red, Green, Blue, Yellow             |
-| **Breadboard**     | Physical assembly                    |
-
----
-
-## 💻 Files Included
-
-- `logic_control.qsf` – Quartus project file  
-- `fsm_control.bdf` – FSM design (Block Diagram)  
-- `mapping_logic.v` – Verilog implementation  
-- `report.pdf` – Full documentation  
-- `README.md` – This file  
-- `sequence_demo.gif` – (Optional) waveform or simulation visual  
+## 🔧 Features
+- **Dynamic LED Control** based on last switch turned off  
+- **Locked Mode** for direct mapping  
+- **Capless Switch Trick** to deactivate switches  
+- **7-Segment Display** to indicate mode  
+- **Fully implemented FSM, Sequence, and Mapping Units**  
+- **Custom 100 kHz Clock using NE555**  
+- **RC-based Reset Timer** when all LEDs are off  
+- **Breadboard and PCB Implementation**  
+- **Soldered Components with Replaceable IC Sockets**  
 
 ---
 
-## 📺 Demo Video
+## 🧰 Components Used
+- 4 Toggle Switches with Colored Caps  
+- 4 Colored LEDs  
+- 1 Circuit Board & Breadboard  
+- NE555 Timer IC  
+- 74LS Series Logic ICs (Flip-flops, Adders, Multiplexers, Decoders, Gates)  
+- 7-Segment Display  
+- Assorted Resistors, Capacitors, Wires  
+- Quartus II & LTSpice software  
 
-[![Watch Demo](https://img.youtube.com/vi/your_video_id/0.jpg)](https://youtu.be/your_video_id)  
-> _Click above to watch the full project demo._
-
----
-
-## 🧠 Learning Outcomes
-
-- Practical application of Boolean algebra and FSMs  
-- Optimization techniques (gate reduction, Karnaugh maps)  
-- Troubleshooting real hardware bugs  
-- Soldering and hardware implementation  
-- Team collaboration and documentation
+(Full component list provided in the report.)
 
 ---
 
-## 📦 How to Run (Simulation)
-
-1. Open `logic_control.qsf` in **Quartus II**
-2. Compile the project
-3. Launch Simulation → RTL Simulation
-4. Observe FSM behavior and LED output
+## 📐 Key Modules
+- **Finite State Machine (FSM):** Controls dynamic behavior based on switch sequence  
+- **Mapping Unit & Memory:** Stores switch-to-LED mapping  
+- **Display Unit:** Drives 7-segment mode display  
+- **Enable Memory:** Controls when switches can remap  
+- **Timers & Clocks:** Custom 100 kHz oscillator and frequency dividers  
 
 ---
 
-## 📜 License
+## 🛠 Implementation
+- Simulated on **Quartus II**  
+- Clock circuit simulated on **LTSpice**  
+- Physically implemented using **breadboard** and **soldered board**  
+- Modular design for easier debugging and IC replacement  
 
-This project is for academic use only under LAU's academic integrity policy.  
-© 2025, Team Mahdi Zein Al Dine.
+---
+
+## ⚡ Power & Timing
+- 100 kHz base clock using NE555  
+- Frequency divider produces 12.5 kHz signal  
+- Reset logic based on NOR gate + RC timing  
+
+---
+
+## 🧪 Challenges Faced
+- Clock delay propagation  
+- Soldering difficulties and IC faults  
+- Tight layout spacing  
+- Resolved using modular wiring, IC sockets, and frequency tuning  
+
+---
+
+## ✅ Outcomes
+- Fully functional dynamic LED control board  
+- Accurate state-based behavior  
+- Visually engaging and educational for demonstrating FSMs and digital logic  
+
+---
+
+## 📄 Report
+The full technical report, schematics, and analysis are available in `FinalReport.pdf`.
 
